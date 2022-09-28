@@ -1,0 +1,28 @@
+<form class="content" [formGroup]="pageForm" (ngSubmit)="onSubmit()">
+    <div class="form-text">
+        <div>
+            <label for="articalName">Please enter the name of the article:</label>
+            <p *ngIf="!pageForm.get('title')?.valid && pageForm.get('title')?.touched">you didn't enter the article name!</p>
+        </div>
+        <div>
+            <input type="text" id="title" class="inputs" placeholder="name of the article here..." [(ngModel)] = "title"
+                formControlName="title">
+        </div>
+    </div>
+    <div class="form-text">
+        <div>
+            <label for="content">Please enter the content of your article:</label>
+            <p *ngIf="!pageForm.get('body')?.valid && pageForm.get('body')?.touched">you didn't enter an article!</p>
+        </div>
+        <div class="content-div">
+            <textarea type="text" id="body" class="inputs" placeholder="enter the content of the article"
+                [(ngModel)]="body" formControlName="body"></textarea>
+        </div>
+        <div id="submit-btn-div">
+            <button mat-raised-button [disabled]="!pageForm.valid" >submit</button>
+        </div>
+        <p>your article will look like this:</p>
+        <p class="headLine">{{title}}</p>
+        <p>{{body}}</p>
+    </div>
+</form>

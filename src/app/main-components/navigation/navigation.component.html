@@ -1,0 +1,28 @@
+<mat-sidenav-container id="main-container">
+    <mat-sidenav mode="side" opened>
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Wikipedia_logo_v3.svg" width="150px"
+                height="150px" />
+        </div>
+        <hr id="logo-button-divider">
+        <input type="text" class="title" matInput [(ngModel)]="searchArticleTitle">
+        <li class="page-list" *ngFor="let page of pages|searchArticle:searchArticleTitle:'title';let i = index">
+            <button class="main-page-button"
+                [ngClass]="i == selectedPage? 'active' : ''" (click)="buttonClick(page.title)">
+                {{page.title}}
+            </button>
+        </li>
+    </mat-sidenav>
+    <mat-sidenav-container>
+        <div class="headLine">
+            <p>{{pages[selectedPage].title | uppercase}}</p>
+        </div>
+        <hr>
+        <div class="artical">
+            <p *ngIf="selectedPage!=1">{{pages[selectedPage].body}}</p>
+        </div>
+        <div *ngIf="selectedPage == 1">
+            <app-new-article></app-new-article>
+        </div>
+    </mat-sidenav-container>
+</mat-sidenav-container>
