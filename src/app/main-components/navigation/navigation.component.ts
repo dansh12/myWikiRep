@@ -5,7 +5,7 @@ import { PagesListService } from '../../services/pages-list/pages-list.service';
 @Component({
   selector: 'app-pages',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.css']
+  styleUrls: ['./navigation.component.sass']
 })
 export class NavigationComponent implements OnInit {
   pages = this.pagesListService.getPages();
