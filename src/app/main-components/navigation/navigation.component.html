@@ -1,5 +1,5 @@
 <mat-sidenav-container id="main-container">
-    <mat-sidenav mode="side" opened>
+    <mat-sidenav #sidenav="matSidenav">
         <div class="logo">
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Wikipedia_logo_v3.svg" width="150px"
                 height="150px" />
@@ -7,15 +7,25 @@
         <hr id="logo-button-divider">
         <input type="text" class="title" matInput [(ngModel)]="searchArticleTitle">
         <li class="page-list" *ngFor="let page of pages|searchArticle:searchArticleTitle:'title';let i = index">
-            <button class="main-page-button"
-                [ngClass]="i == selectedPage? 'active' : ''" (click)="buttonClick(page.title)">
+            <button class="main-page-button" [ngClass]="i == selectedPage? 'active' : ''"
+                (click)="buttonClick(page.title)">
                 {{page.title}}
             </button>
         </li>
     </mat-sidenav>
     <mat-sidenav-container>
         <div class="headLine">
-            <p>{{pages[selectedPage].title | uppercase}}</p>
+            <p id="headline-text">
+                {{pages[selectedPage].title | uppercase}}
+            </p>
+            <button id="menu" mat-icon-button *ngIf="sidenav.mode == 'over'" (click)="sidenav.toggle()">
+                <mat-icon *ngIf="!sidenav.opened">
+                    menu
+                </mat-icon>
+                <mat-icon *ngIf="sidenav.opened">
+                    close
+                </mat-icon>
+            </button>
         </div>
         <hr>
         <div class="artical">

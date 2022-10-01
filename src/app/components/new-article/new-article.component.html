@@ -14,15 +14,16 @@
             <label for="content">Please enter the content of your article:</label>
             <p *ngIf="!pageForm.get('body')?.valid && pageForm.get('body')?.touched">you didn't enter an article!</p>
         </div>
-        <div class="content-div">
+        <div class="content-container">
             <textarea type="text" id="body" class="inputs" placeholder="enter the content of the article"
                 [(ngModel)]="body" formControlName="body"></textarea>
         </div>
-        <div id="submit-btn-div">
+        <div id="submit-btn-container">
             <button mat-raised-button [disabled]="!pageForm.valid" >submit</button>
         </div>
         <p>your article will look like this:</p>
         <p class="headLine">{{title}}</p>
         <p>{{body}}</p>
     </div>
+   
 </form>
