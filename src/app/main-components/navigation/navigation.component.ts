@@ -13,7 +13,7 @@ export class NavigationComponent implements OnInit {
   pages = this.pagesListService.getPages();
   searchArticleTitle = '';
   selectedPage=0;
-
+  value='';
   constructor(private pagesListService: PagesListService, private sideNavObserver: BreakpointObserver) { }
 
   ngOnInit() {}

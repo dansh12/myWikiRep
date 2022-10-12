@@ -13,6 +13,8 @@ import { NavigationComponent } from './main-components/navigation/navigation.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewArticleComponent } from './components/new-article/new-article.component';
 import { SearchArticlePipe } from './pipes/search-article.pipe';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -34,7 +36,9 @@ import { SearchArticlePipe } from './pipes/search-article.pipe';
     MatIconModule,
     MatDividerModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
